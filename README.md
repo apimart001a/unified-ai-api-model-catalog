@@ -4,7 +4,7 @@ A **unified AI API** needs one place that answers "which model ids exist, what m
 bill in?". This repository is that place: a machine-readable catalog of the models reachable through a single
 OpenAI-compatible base URL, regenerated every day from the public pricing payload.
 
-<!-- snapshot:date -->2026-09-19<!-- /snapshot:date -->
+<!-- snapshot:date -->2026-09-20<!-- /snapshot:date -->
 
 **Attributed entry points:** [Browse the model catalog](https://go.apimart.ai/k-fa6008) · [Current pricing](https://go.apimart.ai/k-c8e2c4) · [Get an API key](https://go.apimart.ai/k-3b545d)
 
@@ -112,7 +112,7 @@ The lookup script reads the local JSON only — no network, no API key — so it
 | Source | `https://apimart.ai/en/pricing` (public page, no API key required) |
 | Extractor | [`tools/catalog.py`](tools/catalog.py) — fetch, parse, write `data/models.json`, rebuild `CATALOG.md` and the tables above |
 | Schedule | daily at 06:23 UTC via [`.github/workflows/refresh-catalog.yml`](.github/workflows/refresh-catalog.yml); commits only when something changed |
-| Snapshot | <!-- snapshot:date -->2026-09-19<!-- /snapshot:date --> |
+| Snapshot | <!-- snapshot:date -->2026-09-20<!-- /snapshot:date --> |
 
 ## FAQ
 
