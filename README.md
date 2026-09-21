@@ -23,7 +23,7 @@ A **unified AI API** needs one place that answers "which model ids exist, what m
 bill in?". This repository is that place: a machine-readable catalog of the models reachable through a single
 OpenAI-compatible base URL, regenerated every day from the public pricing payload.
 
-<!-- snapshot:date -->2026-09-17<!-- /snapshot:date -->
+<!-- snapshot:date -->2026-09-21<!-- /snapshot:date -->
 
 ## What the catalog contains
 
@@ -57,9 +57,9 @@ OpenAI-compatible base URL, regenerated every day from the public pricing payloa
 <!-- catalog:summary:start -->
 | Modality | Models captured | Typical billing unit |
 | --- | --- | --- |
-| Image | 41 | per delivered image (by resolution) |
-| Video | 48 | per second of output (by resolution) |
-| Text / multimodal | 208 | per million tokens (input / cached / output) |
+| Image | 40 | per delivered image (by resolution) |
+| Video | 49 | per second of output (by resolution) |
+| Text / multimodal | 187 | per million tokens (input / cached / output) |
 | Other (per call, per track) | 6 | fixed unit per call |
 <!-- catalog:summary:end -->
 
@@ -95,7 +95,6 @@ Headline routes per modality (the full list, with every model id, is in [`CATALO
 | Model id | Route | Headline price | Billing unit |
 | --- | --- | --- | --- |
 | `gpt-5.5` | GPT-5.5 | $4.00 | usd_per_million_tokens |
-| `gpt-5.5-pro` | GPT-5.5 Pro | $24.00 | usd_per_million_tokens |
 | `claude-opus-5` | Claude Opus 5 | $4.00 | usd_per_million_tokens |
 | `claude-sonnet-4-6` | Claude Sonnet 4.6 | $2.40 | usd_per_million_tokens |
 | `deepseek-v4-pro` | DeepSeek V4 Pro | $1.03 | usd_per_million_tokens |
@@ -129,7 +128,7 @@ The lookup script reads the local JSON only — no network, no API key — so it
 | Source | `https://apimart.ai/en/pricing` (public page, no API key required) |
 | Extractor | [`tools/catalog.py`](tools/catalog.py) — fetch, parse, write `data/models.json`, rebuild `CATALOG.md` and the tables above |
 | Schedule | daily at 06:23 UTC via [`.github/workflows/refresh-catalog.yml`](.github/workflows/refresh-catalog.yml); commits only when something changed |
-| Snapshot | <!-- snapshot:date -->2026-09-17<!-- /snapshot:date --> |
+| Snapshot | <!-- snapshot:date -->2026-09-21<!-- /snapshot:date --> |
 
 
 <!-- conv-kit:v1:scale -->
