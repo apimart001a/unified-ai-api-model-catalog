@@ -23,7 +23,7 @@ A **unified AI API** needs one place that answers "which model ids exist, what m
 bill in?". This repository is that place: a machine-readable catalog of the models reachable through a single
 OpenAI-compatible base URL, regenerated every day from the public pricing payload.
 
-<!-- snapshot:date -->2026-09-23<!-- /snapshot:date -->
+<!-- snapshot:date -->2026-09-24<!-- /snapshot:date -->
 
 ## What the catalog contains
 
@@ -59,7 +59,7 @@ OpenAI-compatible base URL, regenerated every day from the public pricing payloa
 | --- | --- | --- |
 | Image | 40 | per delivered image (by resolution) |
 | Video | 49 | per second of output (by resolution) |
-| Text / multimodal | 188 | per million tokens (input / cached / output) |
+| Text / multimodal | 191 | per million tokens (input / cached / output) |
 | Other (per call, per track) | 6 | fixed unit per call |
 <!-- catalog:summary:end -->
 
@@ -128,7 +128,7 @@ The lookup script reads the local JSON only — no network, no API key — so it
 | Source | `https://apimart.ai/en/pricing` (public page, no API key required) |
 | Extractor | [`tools/catalog.py`](tools/catalog.py) — fetch, parse, write `data/models.json`, rebuild `CATALOG.md` and the tables above |
 | Schedule | daily at 06:23 UTC via [`.github/workflows/refresh-catalog.yml`](.github/workflows/refresh-catalog.yml); commits only when something changed |
-| Snapshot | <!-- snapshot:date -->2026-09-23<!-- /snapshot:date --> |
+| Snapshot | <!-- snapshot:date -->2026-09-24<!-- /snapshot:date --> |
 
 
 <!-- conv-kit:v1:scale -->
