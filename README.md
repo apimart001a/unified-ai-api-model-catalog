@@ -23,7 +23,7 @@ A **unified AI API** needs one place that answers "which model ids exist, what m
 bill in?". This repository is that place: a machine-readable catalog of the models reachable through a single
 OpenAI-compatible base URL, regenerated every day from the public pricing payload.
 
-<!-- snapshot:date -->2026-09-27<!-- /snapshot:date -->
+<!-- snapshot:date -->2026-09-28<!-- /snapshot:date -->
 
 ## What the catalog contains
 
@@ -57,10 +57,10 @@ OpenAI-compatible base URL, regenerated every day from the public pricing payloa
 <!-- catalog:summary:start -->
 | Modality | Models captured | Typical billing unit |
 | --- | --- | --- |
-| Image | 41 | per delivered image (by resolution) |
-| Video | 49 | per second of output (by resolution) |
-| Text / multimodal | 191 | per million tokens (input / cached / output) |
-| Other (per call, per track) | 6 | fixed unit per call |
+| Image | 0 | per delivered image (by resolution) |
+| Video | 0 | per second of output (by resolution) |
+| Text / multimodal | 0 | per million tokens (input / cached / output) |
+| Other (per call, per track) | 0 | fixed unit per call |
 <!-- catalog:summary:end -->
 
 Headline routes per modality (the full list, with every model id, is in [`CATALOG.md`](CATALOG.md)):
@@ -70,12 +70,6 @@ Headline routes per modality (the full list, with every model id, is in [`CATALO
 <!-- catalog:image:start -->
 | Model id | Route | Headline price | Billing unit |
 | --- | --- | --- | --- |
-| `gpt-image-2.5-ext` | image2.5 per-image route | $0.0085 | usd_per_image |
-| `gemini-3-pro-image-preview` | Nano Banana Pro | $0.03 | usd_per_image |
-| `gemini-3.1-flash-image-preview` | Nano Banana 2 | $0.015 | usd_per_image |
-| `gemini-2.5-flash-image-preview` | Nano Banana | $0.0125 | usd_per_image |
-| `grok-imagine-1.5-apimart` | Grok Image 1.5 | $0.015 | usd_per_image |
-| `seedream-4-5` | Seedance 4.5 image route | $0.026 | usd_per_image |
 <!-- catalog:image:end -->
 
 ### Video models
@@ -83,10 +77,6 @@ Headline routes per modality (the full list, with every model id, is in [`CATALO
 <!-- catalog:video:start -->
 | Model id | Route | Headline price | Billing unit |
 | --- | --- | --- | --- |
-| `seedance-2.5` | Seedance 2.5 | $0.216 | usd_per_second |
-| `seedance-2.0` | Seedance 2.0 | $0.142 | usd_per_second |
-| `seedance-2.0-mini` | Seedance 2.0 mini | $0.0229 | usd_per_second |
-| `kling-3.0-turbo` | Kling 3.0 Turbo | $0.1144 | usd_per_second |
 <!-- catalog:video:end -->
 
 ### Text and multimodal models
@@ -94,12 +84,6 @@ Headline routes per modality (the full list, with every model id, is in [`CATALO
 <!-- catalog:token:start -->
 | Model id | Route | Headline price | Billing unit |
 | --- | --- | --- | --- |
-| `gpt-5.5` | GPT-5.5 | $4.00 | usd_per_million_tokens |
-| `claude-opus-5` | Claude Opus 5 | $4.00 | usd_per_million_tokens |
-| `claude-sonnet-4-6` | Claude Sonnet 4.6 | $2.40 | usd_per_million_tokens |
-| `deepseek-v4-pro` | DeepSeek V4 Pro | $1.03 | usd_per_million_tokens |
-| `deepseek-v4-flash` | DeepSeek V4 Flash | $0.3429 | usd_per_million_tokens |
-| `gpt-5-mini` | GPT-5 mini | $0.2 | usd_per_million_tokens |
 <!-- catalog:token:end -->
 
 ## Query it without writing a client
@@ -128,7 +112,7 @@ The lookup script reads the local JSON only — no network, no API key — so it
 | Source | `https://apimart.ai/en/pricing` (public page, no API key required) |
 | Extractor | [`tools/catalog.py`](tools/catalog.py) — fetch, parse, write `data/models.json`, rebuild `CATALOG.md` and the tables above |
 | Schedule | daily at 06:23 UTC via [`.github/workflows/refresh-catalog.yml`](.github/workflows/refresh-catalog.yml); commits only when something changed |
-| Snapshot | <!-- snapshot:date -->2026-09-27<!-- /snapshot:date --> |
+| Snapshot | <!-- snapshot:date -->2026-09-28<!-- /snapshot:date --> |
 
 
 <!-- conv-kit:v1:scale -->
